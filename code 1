@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Animated Welcome Text */
+.title {
+    font-size: 4rem;
+    letter-spacing: 0.2em;
+    position: relative;
+    animation: fadeSlide 2s ease forwards;
+}
+
+.title::after {
+    content: "WELCOME";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #00f7ff;
+    filter: blur(20px);
+    z-index: -1;
+    animation: glow 2s infinite alternate;
+}
+
+/* Subtitle */
+.subtitle {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Button */
+.btn {
+    margin-top: 40px;
+    padding: 12px 30px;
+    border: 1px solid #00f7ff;
+    background: transparent;
+    color: #00f7ff;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.btn:hover {
+    background: #00f7ff;
+    color: black;
+    box-shadow: 0 0 20px #00f7ff;
+}
+
+/* Next Section */
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+/* Animations */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1 class="title">WELCOME</h1>
+    <p class="subtitle">Your awesome website starts here</p>
+    <button class="btn" onclick="enterSite()">Enter</button>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section" id="main">
+    🚀 This is your main website content
+</section>
+
+<script>
+function enterSite() {
+    document.getElementById("main").scrollIntoView({ 
+        behavior: "smooth" 
+    });
+}
+</script>
+
+</body>
+</html>
